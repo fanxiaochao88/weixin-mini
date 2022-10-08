@@ -1,0 +1,13 @@
+<view class="profile-item-wrap">
+  <view class="profile-item-inner">
+    <slot name="left">
+    左侧默认
+  </slot>
+  <slot name="center">
+    中间默认
+  </slot>
+  <slot name="right">
+    右侧默认
+  </slot>
+  </view>
+</view>

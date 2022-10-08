@@ -1,0 +1,21 @@
+<!--pages/photo/photo.wxml-->
+<view>
+  <view class="photo-title">
+    <text>相册列表</text>
+    <view class="line"></view>
+  </view>
+  <view class="photo-wrap">
+    <!-- 遍历生成整个相册 -->
+    <photoset data-item="{{item}}" bindtap="gotoPhotoDetail" wx:for="{{ photoSet }}"  wx:key="name" photos="{{ item }}"></photoset>
+    <view class="add-item" bindtap="addPhotoSet">
+      <view>
+        <mp-icon icon="add" color="black" size="{{20}}"></mp-icon>
+        <text style="position: relative; top: 2px;">创建</text>
+      </view>
+      <view>新相册</view>
+    </view>
+  </view>
+  <mp-dialog title="创建相册" show="{{dialogVisible}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+    <input bindinput="bindKeyInput111"   auto-focus placeholder="请输入新相册的名字"/> 
+</mp-dialog>
+</view>

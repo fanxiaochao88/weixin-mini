@@ -1,0 +1,16 @@
+<!--pages/photodetail/photodetail.wxml-->
+<view>
+  <view class="title">
+    <text>相册名称: {{ photoDetails.name }}</text>,
+    <text>数量: {{ photoDetails.length }}<text style="font-size: small;">张</text></text>,
+    <text>空间: {{ photoDetails.size}}<text style="font-size: small;">MB</text></text>
+  </view>
+
+  <view class="image-wrap">
+    <image bindtap="previewImage" class="image-item" wx:for="{{ value[0].photos }}" src="{{item.path}}"></image>
+  </view>
+
+  <view style="position: fixed; bottom: 80rpx; right: 80rpx;">
+    <button bindtap="daoruClick" type="primary" size="mini">+导入</button>
+  </view>
+</view>

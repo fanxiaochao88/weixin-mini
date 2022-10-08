@@ -1,0 +1,29 @@
+/* pages/photo/photo.wxss */
+.photo-wrap {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-evenly; */
+}
+.add-item {
+  width: 320rpx;
+  height: 320rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 40rpx;
+}
+.photo-title {
+  background-color: #eee;
+  padding: 10rpx;
+  display: flex;
+  align-items: center;
+}
+.line {
+  width: 10rpx;
+  height: 50rpx;
+  margin-left: 10rpx;
+  background-color: #2F77F1;
+  border-radius: 3rpx;
+}

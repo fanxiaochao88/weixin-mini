@@ -1,0 +1,44 @@
+<!--pages/profile/profile.wxml-->
+<view>
+  <view wx:if="{{ hasUserInfo }}">
+    <profileitem>
+      <view slot="left">
+        <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+      </view>
+      <view slot="center">
+        <text style="position: relative; left: -200rpx;">{{ userInfo.nickName }}</text>
+      </view>
+      <view slot="right">
+        <mp-icon icon="arrow" color="#bbb" size="{{11}}"></mp-icon>
+      </view>
+    </profileitem>
+    <profileitem>
+      <view slot="left">
+        <text style="color: #000; font-weight: 500;">手机</text>
+      </view>
+      <view slot="center">
+      </view>
+      <view slot="right">
+        <view style="display: flex; align-items: center; height: 80rpx;">
+          <text style="color: #bbb; margin-right: 16rpx;">绑定</text>
+          <mp-icon icon="arrow" color="#bbb" size="{{11}}"></mp-icon>
+        </view>
+      </view>
+    </profileitem>
+    <profileitem>
+      <view slot="left">
+        <text style="color: #000; font-weight: 500;">关于</text>
+      </view>
+      <view slot="center">
+      </view>
+      <view slot="right">
+        <view style="display: flex; align-items: center; height: 80rpx;">
+          <mp-icon icon="arrow" color="#bbb" size="{{11}}"></mp-icon>
+        </view>
+      </view>
+    </profileitem>
+  </view>
+  <view wx:if="{{ !hasUserInfo }}">
+    <button bindtap="getUserProfile">请授权用户信息</button>
+  </view>
+</view>

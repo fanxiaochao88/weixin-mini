@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "profileitem": "/components/profileItem/profileitem",
+    "mp-icon": "weui-miniprogram/icon/icon" 
+  }
+}

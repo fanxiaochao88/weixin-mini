@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/photo/photo",
+    "pages/profile/profile",
+    "pages/photodetail/photodetail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#f1f1f1",
+    "navigationBarTitleText": "相册",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#7CA9F6",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/assets/img/shouye.png",
+        "selectedIconPath": "/assets/img/shouye_1.png"
+      },
+      {
+        "pagePath": "pages/photo/photo",
+        "text": "相册",
+        "iconPath": "/assets/img/xiangce.png",
+        "selectedIconPath": "/assets/img/xiangce_1.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "/assets/img/wode.png",
+        "selectedIconPath": "/assets/img/wode_1.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,28 @@
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  background-size: 100% 100%;
+}
+
+.shouye-title {
+  margin-bottom: 20px;
+  padding: 30rpx 100rpx;
+  color: #5febeb;
+  font-size: x-large;
+  text-shadow: 3rpx 3rpx 12rpx #11e6e6;
+}
+
+.bg-item {
+  width: 46%;
+  height: 287rpx;
+  background-color: #bfa;
+  margin-bottom: 40rpx;
+  box-sizing: border-box;
+  padding: 30rpx 0 0 40rpx;
+  color: #fff;
+  font-size: 40rpx;
+  font-weight: bold;
+}

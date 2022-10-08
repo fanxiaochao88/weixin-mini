@@ -1,0 +1,26 @@
+/* components/photoset/photoset.wxss */
+.photoset-item11 {
+  width: 330rpx;
+  height: 320rpx;
+  margin-left: 30rpx;
+
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* justify-content: center; */
+
+  padding: 10rpx 0;
+  margin-bottom: 20rpx;
+  box-shadow: 3px 3px 6px #ccc;
+  border-radius: 20rpx;
+}
+.front-image {
+  width: 80%;
+  height: 80%;
+}
+
+.test text {
+  overflow: hidden;
+}
