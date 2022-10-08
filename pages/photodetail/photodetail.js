@@ -10,7 +10,90 @@ Page({
       length: 0,
       size: 0
     },
-    value: []
+    size: 0,
+    value: [],
+    isDelete: false,
+    isEdit: true,
+    changeChecked: []
+  },
+
+  checkboxChange(e) {
+    const checked = e.detail.value.length
+    const index = e.target.dataset.index
+    const temp = [...this.data.changeChecked]
+    if (temp.length == 0) {
+      temp.push({
+        [index]: checked
+      })
+    } else {
+      temp.forEach(item => {
+        if (Object.keys(item)[0] == index) {
+          item[index] = checked
+        } else {
+          temp.push({
+            [index]: checked
+          })
+        }
+      })
+    }
+    this.setData({
+      changeChecked: temp
+    })
+  },
+
+  //删除
+  deleteClick() {
+    if (this.data.isEdit) {
+      this.setData({
+        isDelete: true,
+        isEdit: false
+      })
+      return
+    }
+
+    if (this.data.isDelete) {
+      this.setData({
+        isDelete: false,
+        isEdit: true
+      })
+      console.log(this.data.value);
+      this.data.changeChecked.forEach(item => {
+        const key = Object.keys(item)[0]
+        console.log(key);
+        console.log(item[key]);
+        console.log(this.data.value[0].photos[key]);
+        if (item[key] == 1) {
+          const temp = [...this.data.value]
+          temp[0].photos.splice(+key, 1)
+          this.setData({
+            value: temp
+          })
+
+        }
+      })
+      const size = (this.data.value[0].photos.reduce((p, n) => p + n.size, 0) / (1024 * 1024)).toFixed(4)
+      this.setData({
+        size
+      })
+      wx.getStorage({
+        key: 'photoSet',
+        success: (res2) => {
+          const oldValue = JSON.parse(res2.data)
+          for (let i = 0; i<oldValue.length; i++) {
+            if (oldValue[i].name == this.data.photoDetails.name) {
+              oldValue[i] = this.data.value[0]
+              break
+            }
+          }
+          wx.setStorage({
+            key: 'photoSet',
+            data: JSON.stringify(oldValue)
+          })
+
+        }
+      })
+    }
+
   },
 
   //导入
@@ -26,6 +109,9 @@ Page({
           success: (res2) => {
             const oldValue = JSON.parse(res2.data)
             console.log(oldValue);
+            res.tempFiles.forEach(item => {
+              item.checked = false
+            })
             oldValue.filter(item => item.name == this.data.photoDetails.name)[0].photos.push(...res.tempFiles)
             wx.setStorage({
               key: 'photoSet',
@@ -55,7 +141,11 @@ Page({
    */
   onLoad(options) {
     this.setData({
-      photoDetails: { name: options.name, length: +options.length, size: options.size }
+      photoDetails: {
+        name: options.name,
+        length: +options.length,
+        size: options.size
+      }
     })
   },
 
@@ -79,8 +169,13 @@ Page({
         this.setData({
           value
         })
+        const size = (this.data.value[0].photos.reduce((p, n) => p + n.size, 0) / (1024 * 1024)).toFixed(4)
+        this.setData({
+          size
+        })
       }
     })
+
   },
 
   /**

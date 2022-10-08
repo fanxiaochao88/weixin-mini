@@ -2,15 +2,28 @@
 <view>
   <view class="title">
     <text>相册名称: {{ photoDetails.name }}</text>,
-    <text>数量: {{ photoDetails.length }}<text style="font-size: small;">张</text></text>,
-    <text>空间: {{ photoDetails.size}}<text style="font-size: small;">MB</text></text>
+    <text>数量: {{ value[0].photos.length }}<text style="font-size: small;">张</text></text>,
+    <text>空间: {{ size }}<text style="font-size: small;">MB</text></text>
   </view>
 
   <view class="image-wrap">
-    <image bindtap="previewImage" class="image-item" wx:for="{{ value[0].photos }}" src="{{item.path}}"></image>
+    <view wx:for="{{ value[0].photos }}" class="image-item">
+      <checkbox-group data-index="{{ index }}" bindchange="checkboxChange" style="position: absolute; top: 0; right: 0;">
+        <checkbox wx:if="{{ isDelete }}" value="{{ item.checked }}" checked="{{ item.checked }}"></checkbox>
+      </checkbox-group>
+      <image bindtap="previewImage" src="{{item.path}}"></image>
+    </view>
   </view>
 
   <view style="position: fixed; bottom: 80rpx; right: 80rpx;">
-    <button bindtap="daoruClick" type="primary" size="mini">+导入</button>
+    <button bindtap="daoruClick" type="primary" size="mini">
+      <mp-icon icon="add" color="#fff" size="{{20}}"></mp-icon>
+      <text style="position: relative; top: 5rpx;">导入</text>
+    </button>
+    <button style="margin-left: 20rpx;" bindtap="deleteClick" type="primary" size="mini">
+      <mp-icon wx:if="{{ isDelete }}" icon="delete" color="#fff" size="{{20}}"></mp-icon>
+      <mp-icon wx:else="{{ isDelete }}" icon="pencil" color="#fff" size="{{20}}"></mp-icon>
+      <text style="position: relative; top: 5rpx;">{{ isDelete? '删除' : '编辑' }}</text>
+    </button>
   </view>
 </view>

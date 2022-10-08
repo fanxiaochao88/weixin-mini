@@ -1,5 +1,5 @@
 <!--pages/photo/photo.wxml-->
-<view>
+<view style=" height: 102%;background:linear-gradient(to right, rgb(128, 128, 128), #373737);">
   <view class="photo-title">
     <text>相册列表</text>
     <view class="line"></view>
@@ -9,10 +9,10 @@
     <photoset data-item="{{item}}" bindtap="gotoPhotoDetail" wx:for="{{ photoSet }}"  wx:key="name" photos="{{ item }}"></photoset>
     <view class="add-item" bindtap="addPhotoSet">
       <view>
-        <mp-icon icon="add" color="black" size="{{20}}"></mp-icon>
-        <text style="position: relative; top: 2px;">创建</text>
+        <mp-icon icon="add" color="#fff" size="{{20}}"></mp-icon>
+        <text style="position: relative; top: 2px; color: #fff;">创建</text>
       </view>
-      <view>新相册</view>
+      <view style="color: #fff;">新相册</view>
     </view>
   </view>
   <mp-dialog title="创建相册" show="{{dialogVisible}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">

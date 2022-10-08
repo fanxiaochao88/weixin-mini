@@ -1,7 +1,7 @@
 /* components/photoset/photoset.wxss */
 .photoset-item11 {
   width: 330rpx;
-  height: 320rpx;
+  height: 247.5rpx;
   margin-left: 30rpx;
 
   overflow: hidden;
@@ -11,16 +11,26 @@
   /* align-items: center; */
   /* justify-content: center; */
 
-  padding: 10rpx 0;
-  margin-bottom: 20rpx;
-  box-shadow: 3px 3px 6px #ccc;
+  /* padding: 10rpx 0; */
+  margin-bottom: 80rpx;
+  box-shadow: 3px 3px 6px rgb(99, 92, 92);
   border-radius: 20rpx;
 }
 .front-image {
-  width: 80%;
-  height: 80%;
+  width: 32%;
+  height: 40%;
+  position: absolute;
+  top: 55rpx;
+  left: 130rpx;
+  border-radius: 15rpx;
 }
-
+.test {
+  position: absolute;
+  z-index: 999;
+  bottom: -68rpx;
+  left: 50rpx;
+  color: #fff;
+}
 .test text {
   overflow: hidden;
 }
